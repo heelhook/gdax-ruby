@@ -14,8 +14,8 @@ module GDAX
     # @return [GDAX::NestedCollection] Collection of GDAX::AccountHistory
     # @api public
     #
-    def history
-      NestedCollection.new(AccountHistory, parent_id: id).reload
+    def history(params = {})
+      NestedCollection.new(AccountHistory, params.merge(parent_id: id)).reload
     end
 
     ##
